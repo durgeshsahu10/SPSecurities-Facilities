@@ -1,0 +1,19 @@
+# Netlify deployment for the SP Securities site (TanStack Start SSR + Nitro).
+# This file is the single source of truth for the deploy. If the Netlify UI
+# has different Build command / Publish directory / Functions directory values,
+# the UI wins — so either clear those UI fields or keep them matching this file.
+
+[build]
+command = "bun run build"
+# With NITRO_PRESET=netlify the static files (JS, CSS, images, SEO files)
+# are emitted to dist/. The server function is auto-deployed from
+# .netlify/functions-internal/ — leave Functions directory EMPTY in the UI.
+publish = "dist"
+
+[build.environment]
+# Build the server in Netlify Functions format. Without this the output is a
+# Cloudflare Worker, which Netlify cannot execute — pages then render without
+# a working server and all interactivity (menu drawer, forms) stays dead.
+NITRO_PRESET = "netlify"
+# Vite 8 requires Node 20.19+ / 22.12+.
+NODE_VERSION = "22"

@@ -1,1 +1,0 @@
-var e=`/assets/facility-services-DHz3AjZZ.jpg`;export{e as t};
