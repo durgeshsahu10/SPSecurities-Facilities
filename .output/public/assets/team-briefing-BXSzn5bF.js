@@ -1,0 +1,1 @@
+var e=`/assets/team-briefing-B6QUUVsy.jpg`;export{e as t};

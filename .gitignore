@@ -3,7 +3,7 @@ node_modules/
 
 # Build outputs (all generated — never commit)
 dist/
-.output/
+
 .firebase/
 .vinxi/
 build/

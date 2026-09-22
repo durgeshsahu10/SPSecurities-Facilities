@@ -1,0 +1,339 @@
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
+import { B as Award, D as Headset, M as Clock, P as CircleCheck, V as ArrowRight, d as ShieldCheck, l as Sparkles, r as Users } from "../_libs/lucide-react.mjs";
+import { a as serviceAreas, i as securityServices, n as facilityServices, o as stats, r as industries } from "./site-GFofrnMr.mjs";
+import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
+import { r as SectionHeading, t as CtaBand } from "./page-hero-B5i-ShLc.mjs";
+import { t as hero_security_default } from "./hero-security-I0lUDKTg.mjs";
+import { t as facility_services_default } from "./facility-services-xkLzxd2Q.mjs";
+import { t as security_services_default } from "./security-services-BneGgZJc.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-DK3Db4js.js
+var import_jsx_runtime = require_jsx_runtime();
+var clients = [
+	{
+		name: "Knight Frank (India) Pvt. Ltd.",
+		logo: "data:image/svg+xml,%3c?xml%20version='1.0'?%3e%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='158'%20height='65'%20viewBox='0%200%20686%20270'%3e%3cg%20style='fill:%23D0103A;'%3e%3cpath%20d='M522.5,53.3c-3.5-3.9-9.4-7.6-16.5-7.6c-22.8,0-30.3,20.4-30.3,39.6c0,17.9,7.8,35.6,29.3,35.6%20c5.9,0,12.8-3.4,15-7.1v6.2c0,11.1-0.9,16.4-15.3,16.4c-6.9,0-15-2.5-22.1-6.2l-4.7,13.3c9.3,4.6,18.1,7.4,27.8,7.4%20c7.5,0,18.1-1.2,24.9-7.1c7.2-5.9,7.5-16.4,7.5-26.6l0.1-71.7l-14.3,2.3C523.9,47.6,522.8,51.7,522.5,53.3z%20M520,90.8%20c0,3.4-0.3,6.8-1.6,9.6c-1.6,3.4-4.7,5.6-8.7,5.6c-11.5,0-12.8-8-12.8-23.2c0-13.6,2.5-21.6,12.5-21.6c5,0,8.7,2.5,10.6,4.6V90.8z'/%3e%3cpath%20d='M451.9,228.4l0.1-24.7c0-7.6-0.3-9.9-1.3-13c-2.8-8-11.2-12.7-23.7-12.7c-6.9,0-13.1,1.2-20.3,4.3%20c-4,1.7-7.9,3.9-11.6,6.1l7.1,12.6c8.8-5.5,15.7-7.7,21.9-7.7c7.2,0,8.9,3.2,8.9,11.2v2.8h-4.5c-23.4,0-35.2,8-35.2,25%20c0,13.2,7.2,21.4,21,22.7h7.8c4.4-0.5,8.1-1.9,11.1-3.8c1.6-0.9,3.1-2.5,4.7-4.1c1.6,3.1,4.6,6,8,7.9l2.3,1.1l1-1.1l9.9-10.6%20C452.6,239.5,451.9,235.9,451.9,228.4z%20M422.4,241.4c-5,0-8.4-4-8.4-9.6c0-8.7,4.4-11.9,17.8-11.9h1.1l0,17%20C430,240,426.1,241.4,422.4,241.4z'/%3e%3cpolygon%20points='98.2,20.9%2020.5,20.9%2020.5,98%2059.6,136.9%20137.4,59.8'/%3e%3cpolygon%20points='20.5,175.8%2020.5,253%2098.2,253%20137.4,214.1%2059.6,136.9'/%3e%3cpolygon%20points='176.5,253%20253.8,253%20253.8,175.2%20215.2,136.9%20137.4,214.1'/%3e%3cpolygon%20points='137.4,59.8%20215.2,136.9%20253.8,98.6%20253.8,20.9%20176.5,20.9'/%3e%3cpath%20d='M665.1,106.9c-3.4,0.9-5,1.6-6.8,1.6c-6.6,0-8.4-2.5-8.4-11.8V60.2H662l5-13.3h-17.1V26.8l-19,3.1v17h-7.5%20v13.3h7.5v39.6c0,6.8,0,8,1.2,11.2c2.2,6.5,10,10.8,19.6,10.8c5,0,10.3-1.2,15.9-3.4L665.1,106.9z'/%3e%3cpolygon%20points='311.5,68.2%20341.6,119.9%20367,119.9%20332.5,66.7%20363.6,20.9%20339.9,20.9%20311.5,66.1%20311.5,20.9%20291.3,20.9%20291.3,119.9%20311.5,119.9'/%3e%3cpath%20d='M404.8,61.7c5.3,0,6.8,3.4,6.8,11.7v46.4h18.7V66.7c0-4.7-0.3-7.7-1.2-10.5c-2.2-6.2-9.7-10.5-17.8-10.5%20c-4.4,0-9.3,0.9-13.1,3.1c-3.1,1.6-6.2,4-8.4,6.8l-1.2-9.7l-16.2,2.6v71.4h19.3v-43c0-5.3,1.6-9,4.1-11.4%20C398.6,63,401.7,61.7,404.8,61.7z'/%3e%3cpolygon%20points='444.9,119.9%20464.3,119.9%20464.3,45.4%20444.9,48.4'/%3e%3cpath%20d='M592.5,45.1c-8.4,0-15.6,3.1-20.9,8.9c0-0.9,0.3-5.3,0.3-7.4V19.1l-19.6,3.2v97.7h19.6V79.7%20c0-6.8,0.9-10.7,3.1-13.3c2.9-3.4,7.8-5.3,12.2-5.3c5.6,0,7.5,3.1,7.5,9.9v48.9h18.7v-51c0-7.1-0.3-9.3-1.9-13.3%20C609.3,49.1,601.9,45.1,592.5,45.1z'/%3e%3cpath%20d='M454.7,15c-6.6,0-11.9,5.3-11.9,11.9c0,6.6,5.3,11.9,11.9,11.9c6.6,0,11.9-5.3,11.9-11.9%20C466.6,20.4,461.3,15,454.7,15z'/%3e%3cpolygon%20points='291.1,252.5%20310.7,252.5%20310.7,208.6%20336.3,208.6%20336.3,192.6%20310.7,192.6%20310.7,169.4%20342.5,169.4%20345,153.6%20291.1,153.6'/%3e%3cpath%20d='M365.3,189.1l-1.9-9.9l-15.6,2.5v70.8h19.3v-45.2c0-3.7,0.6-6.8,2.8-9.2c1.9-2,5-3.4,8.5-3.4%20c2.2,0,4.7,0.6,6.6,1.5l4.9-17c-3.1-1.2-4.4-1.5-7.2-1.5C375.5,177.7,368.4,184.2,365.3,189.1z'/%3e%3cpolygon%20points='540.5,155.5%20540.5,252.5%20559.8,252.5%20559.8,211.1%20559.8,152.4'/%3e%3cpolygon%20points='602.2,179.5%20578.8,179.5%20559.8,211.1%20584.9,252.5%20607.5,252.5%20578.5,210.2'/%3e%3cpath%20d='M506.9,178.3c-4.4,0-9.4,0.9-13.1,3.1c-3.1,1.6-6.2,4-8.4,6.8l-1.2-9.7l-16.2,2.6v71.4h19.3v-43%20c0-5.3,1.6-9,4.1-11.5c2.8-2.5,5.9-3.7,9-3.7c5.3,0,6.9,3.4,6.9,11.8v46.4h18.7v-53.2c0-4.6-0.3-7.7-1.2-10.5%20C522.5,182.7,515,178.3,506.9,178.3z'/%3e%3c/g%3e%3c/svg%3e"
+	},
+	{
+		name: "JLL Property Management",
+		logo: "/assets/jll-BDAcuBWM.svg"
+	},
+	{
+		name: "Panchshil Towers",
+		logo: "/assets/panchshil-_X7UTV-a.jpg"
+	},
+	{
+		name: "Riverdale Heights",
+		logo: "data:image/png;base64,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"
+	},
+	{
+		name: "Nyati Group",
+		logo: "/assets/nyati-CSTIP_6f.jpg"
+	},
+	{
+		name: "Verde Society, Kalyani Nagar",
+		logo: "/assets/verde-BUc-AFef.png"
+	}
+];
+function ClientShowcase() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+		className: "bg-sand",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "mx-auto max-w-7xl px-4 py-20",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+				eyebrow: "Trusted partnerships",
+				title: "Our valued clients",
+				description: "Proud to support respected property managers, developers and residential communities.",
+				align: "center"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3",
+				children: clients.map((client) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "flex min-h-44 flex-col items-center justify-center bg-card p-6 text-center",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: client.logo,
+						alt: `${client.name} logo`,
+						loading: "lazy",
+						className: "h-16 w-full object-contain md:h-20",
+						onError: (e) => {
+							e.currentTarget.style.display = "none";
+						}
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-4 text-sm font-semibold text-ink",
+						children: client.name
+					})]
+				}, client.name))
+			})]
+		})
+	});
+}
+function Home() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			className: "relative isolate overflow-hidden",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+					src: hero_security_default,
+					alt: "SP Securities guards on duty at a corporate tower in Pune",
+					width: 1920,
+					height: 1088,
+					className: "absolute inset-0 size-full object-cover"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/80 to-ink/30" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "relative mx-auto max-w-7xl px-4 py-24 md:py-36",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "text-xs font-bold tracking-[0.24em] text-accent uppercase",
+							children: "Security services across Pune & Mumbai"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
+							className: "mt-5 max-w-3xl text-4xl leading-[1.08] font-semibold text-primary-foreground md:text-6xl",
+							children: [
+								"Your Safety.",
+								" ",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "text-gradient-gold",
+									children: "Our Responsibility."
+								})
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							className: "mt-6 max-w-xl text-lg text-primary-foreground/80",
+							children: "Reliable, professional and responsible security solutions designed to protect people, properties, businesses and valuable assets."
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "mt-9 flex flex-wrap gap-3",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+								to: "/contact",
+								className: "inline-flex items-center gap-2 rounded-md bg-gradient-gold px-6 py-3 text-sm font-semibold text-ink shadow-gold transition-transform hover:-translate-y-0.5",
+								children: ["Contact Us ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "size-4" })]
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/services",
+								className: "inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:border-accent hover:text-accent",
+								children: "Explore Services"
+							})]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dl", {
+							className: "mt-14 grid max-w-3xl grid-cols-2 gap-6 md:grid-cols-4",
+							children: stats.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "border-l-2 border-accent/70 pl-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dt", {
+									className: "font-display text-2xl font-semibold text-primary-foreground md:text-3xl",
+									children: s.value
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("dd", {
+									className: "mt-1 text-xs text-primary-foreground/65",
+									children: s.label
+								})]
+							}, s.label))
+						})
+					]
+				})
+			]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+			className: "mx-auto max-w-7xl px-4 py-20",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+				eyebrow: "What we do",
+				title: "Two divisions. One accountable partner.",
+				description: "Security and facility management under a single contract, single supervisor structure and single monthly report.",
+				align: "center"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mt-12 grid gap-8 lg:grid-cols-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PillarCard, {
+					to: "/services/security",
+					image: security_services_default,
+					icon: ShieldCheck,
+					title: "Security Services",
+					text: "Professional guarding, industrial, residential and commercial security, event teams, personal protection, private detective and bouncer services.",
+					items: securityServices.slice(0, 5).map((s) => s.title)
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PillarCard, {
+					to: "/services/facilities",
+					image: facility_services_default,
+					icon: Sparkles,
+					title: "Facilities Services",
+					text: "Housekeeping, project cleaning, carpet and chair shampooing, technical upkeep, pest control and integrated facility management.",
+					items: facilityServices.slice(0, 5).map((s) => s.title)
+				})]
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+			className: "bg-sand",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mx-auto max-w-7xl px-4 py-20",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+					eyebrow: "Why SP Securities",
+					title: "Compliance, training and supervision you can audit"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4",
+					children: [
+						{
+							icon: Award,
+							title: "PSARA licensed",
+							text: "Statutory compliance on PF, ESIC, minimum wages and police verification for every deployed person."
+						},
+						{
+							icon: Users,
+							title: "Screened manpower",
+							text: "Background checks, Aadhaar verification and reference validation before any badge is issued."
+						},
+						{
+							icon: Clock,
+							title: "24x7 control room",
+							text: "Live escalation desk, night patrol checks and guaranteed relief cover for absentees."
+						},
+						{
+							icon: Headset,
+							title: "Dedicated account manager",
+							text: "One named manager per client, monthly site audits and a transparent performance scorecard."
+						}
+					].map((f) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "rounded-xl border border-border bg-card p-6 shadow-card",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								className: "inline-flex rounded-lg bg-gradient-gold p-2.5 text-ink shadow-gold",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(f.icon, { className: "size-5" })
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+								className: "mt-4 text-lg font-semibold text-ink",
+								children: f.title
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-2 text-sm text-muted-foreground",
+								children: f.text
+							})
+						]
+					}, f.title))
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+			className: "mx-auto max-w-7xl px-4 py-20",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid gap-12 lg:grid-cols-2",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+					eyebrow: "Industries",
+					title: "Sectors we protect and maintain"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+					className: "mt-8 grid gap-3 sm:grid-cols-2",
+					children: industries.map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+						className: "flex items-center gap-3 text-sm text-ink-soft",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "size-4 shrink-0 text-gold-deep" }), i]
+					}, i))
+				})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+					eyebrow: "Coverage",
+					title: "On the ground across Pune & Mumbai",
+					description: "Deployment teams stationed close to every major business hub, so replacements reach your site fast."
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-8 flex flex-wrap gap-2",
+					children: serviceAreas.map((a) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-ink-soft",
+						children: a
+					}, a))
+				})] })]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClientShowcase, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+			className: "bg-gradient-ink",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mx-auto max-w-7xl px-4 py-20",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeading, {
+					eyebrow: "Clients",
+					title: "What our clients say",
+					align: "center",
+					tone: "dark"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "mt-12 grid gap-6 md:grid-cols-3",
+					children: [
+						{
+							quote: "Guard turnout and shift discipline improved within the first month. The monthly audit report is genuinely useful.",
+							name: "Facility Head",
+							org: "IT Park, Hinjewadi"
+						},
+						{
+							quote: "One team handles our housekeeping and security. Coordination headaches simply disappeared.",
+							name: "Estate Manager",
+							org: "Residential Society, Kharadi"
+						},
+						{
+							quote: "Their control room responded to a night incident in under ten minutes. That decided our renewal.",
+							name: "Plant Administrator",
+							org: "Manufacturing Unit, Chakan"
+						}
+					].map((t) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("figure", {
+						className: "rounded-xl border border-primary-foreground/10 bg-primary-foreground/5 p-7",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("blockquote", {
+							className: "text-sm leading-relaxed text-primary-foreground/85",
+							children: [
+								"“",
+								t.quote,
+								"”"
+							]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("figcaption", {
+							className: "mt-5 text-xs text-accent",
+							children: [
+								t.name,
+								" · ",
+								t.org
+							]
+						})]
+					}, t.org))
+				})]
+			})
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CtaBand, {})
+	] });
+}
+function PillarCard({ to, image, icon: Icon, title, text, items }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "group overflow-hidden rounded-2xl border border-border bg-card shadow-card",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "relative h-56 overflow-hidden",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+				src: image,
+				alt: title,
+				width: 1600,
+				height: 1008,
+				loading: "lazy",
+				className: "size-full object-cover transition-transform duration-700 group-hover:scale-105"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "absolute top-4 left-4 inline-flex rounded-lg bg-gradient-gold p-2.5 text-ink shadow-gold",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Icon, { className: "size-5" })
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "p-7",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+					className: "text-2xl font-semibold text-ink",
+					children: title
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+					className: "mt-3 text-sm text-muted-foreground",
+					children: text
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+					className: "mt-5 grid gap-2 sm:grid-cols-2",
+					children: items.map((i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", {
+						className: "flex items-center gap-2 text-sm text-ink-soft",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "size-4 shrink-0 text-gold-deep" }),
+							" ",
+							i
+						]
+					}, i))
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
+					to,
+					className: "mt-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-deep hover:gap-3",
+					children: [
+						"View all ",
+						title.toLowerCase(),
+						" ",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "size-4" })
+					]
+				})
+			]
+		})]
+	});
+}
+//#endregion
+export { Home as component };
