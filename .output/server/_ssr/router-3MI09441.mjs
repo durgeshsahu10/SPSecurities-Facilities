@@ -7,10 +7,10 @@ import { t as Toaster } from "../_libs/sonner.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-nUkPjuwv.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-3MI09441.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-CQm_BqCj.css";
+var styles_default = "/assets/styles-DscBvahr.css";
 var sp_securities_logo_default = "/assets/sp-securities-logo-2hkpU25p.png";
 function cn(...inputs) {
 	return twMerge(clsx(inputs));
@@ -53,81 +53,147 @@ var serviceLinks = [
 ];
 function SiteHeader() {
 	const [open, setOpen] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => {
+		if (!open) return;
+		const onKey = (e) => {
+			if (e.key === "Escape") setOpen(false);
+		};
+		document.addEventListener("keydown", onKey);
+		const prev = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
+		return () => {
+			document.removeEventListener("keydown", onKey);
+			document.body.style.overflow = prev;
+		};
+	}, [open]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", {
 		className: "sticky top-0 z-50 border-b border-sidebar-border bg-primary text-primary-foreground shadow-card",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
-					to: "/",
-					className: "flex items-center gap-3",
-					onClick: () => setOpen(false),
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						src: sp_securities_logo_default,
-						alt: "SP Securities logo",
-						width: 180,
-						height: 100,
-						className: "h-14 w-auto object-contain"
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
-					className: "hidden items-center gap-1 lg:flex",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
-							to: "/",
-							label: "Home"
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "group relative",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-								className: "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/80 transition-colors hover:text-accent",
-								children: ["Services ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "size-4" })]
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "invisible absolute left-0 top-full w-60 translate-y-1 rounded-lg border border-border bg-card p-2 opacity-0 shadow-card transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
-								children: serviceLinks.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
-									to: s.to,
-									className: "block rounded-md px-3 py-2 text-sm text-ink-soft transition-colors hover:bg-sand hover:text-gold-deep",
-									children: s.label
-								}, s.to))
-							})]
-						}),
-						navLinks.slice(1).map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
-							to: l.to,
-							label: l.label
-						}, l.to))
-					]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "hidden lg:block",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
-						to: "/contact",
-						className: "inline-flex items-center rounded-md bg-gradient-gold px-5 py-2.5 text-sm font-semibold text-ink shadow-gold transition-transform hover:-translate-y-0.5",
-						children: "Contact Us"
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					className: "rounded-md border border-primary-foreground/25 p-2 lg:hidden",
-					onClick: () => setOpen((v) => !v),
-					"aria-label": "Toggle navigation menu",
-					children: open ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, { className: "size-5" })
-				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: cn("border-t border-sidebar-border bg-primary lg:hidden", open ? "block" : "hidden"),
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
-				className: "mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5",
 				children: [
-					...navLinks.slice(0, 1),
-					...serviceLinks,
-					...navLinks.slice(1)
-				].map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
-					to: l.to,
-					onClick: () => setOpen(false),
-					className: "rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/80 hover:bg-sidebar-accent hover:text-accent",
-					children: l.label
-				}, l.to))
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+						to: "/",
+						className: "flex items-center gap-3",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+							src: sp_securities_logo_default,
+							alt: "SP Securities logo",
+							width: 180,
+							height: 100,
+							className: "h-14 w-auto object-contain"
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
+						className: "hidden items-center gap-1 lg:flex",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
+								to: "/",
+								label: "Home"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "group relative",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+									className: "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/80 transition-colors hover:text-accent",
+									children: ["Services ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "size-4" })]
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "invisible absolute left-0 top-full w-60 translate-y-1 rounded-lg border border-border bg-card p-2 opacity-0 shadow-card transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100",
+									children: serviceLinks.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+										to: s.to,
+										className: "block rounded-md px-3 py-2 text-sm text-ink-soft transition-colors hover:bg-sand hover:text-gold-deep",
+										children: s.label
+									}, s.to))
+								})]
+							}),
+							navLinks.slice(1).map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
+								to: l.to,
+								label: l.label
+							}, l.to))
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "hidden lg:block",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+							to: "/contact",
+							className: "inline-flex items-center rounded-md bg-gradient-gold px-5 py-2.5 text-sm font-semibold text-ink shadow-gold transition-transform hover:-translate-y-0.5",
+							children: "Contact Us"
+						})
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "button",
+						className: "rounded-md border border-primary-foreground/25 p-2 lg:hidden",
+						onClick: () => setOpen((v) => !v),
+						"aria-label": open ? "Close navigation menu" : "Open navigation menu",
+						"aria-expanded": open,
+						"aria-controls": "mobile-menu",
+						children: open ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "size-5" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Menu, { className: "size-5" })
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: cn("fixed inset-0 z-40 bg-ink/60 transition-opacity duration-300 lg:hidden", open ? "opacity-100" : "pointer-events-none opacity-0"),
+				onClick: () => setOpen(false),
+				"aria-hidden": !open
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				id: "mobile-menu",
+				role: "dialog",
+				"aria-modal": "true",
+				"aria-label": "Site menu",
+				className: cn("fixed top-0 right-0 z-50 flex h-full w-80 max-w-[85vw] flex-col bg-primary text-primary-foreground shadow-card transition-transform duration-300 ease-out lg:hidden", open ? "translate-x-0" : "translate-x-full"),
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex items-center justify-between border-b border-sidebar-border px-4 py-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "text-sm font-semibold tracking-wide text-accent",
+							children: "Menu"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: () => setOpen(false),
+							"aria-label": "Close navigation menu",
+							className: "rounded-md border border-primary-foreground/25 p-2",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(X, { className: "size-5" })
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", {
+						className: "flex-1 overflow-y-auto px-4 py-4",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawerLink, {
+								to: "/",
+								label: "Home",
+								onNavigate: () => setOpen(false)
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "eyebrow mt-5 mb-1 px-3",
+								children: "Services"
+							}),
+							serviceLinks.map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawerLink, {
+								to: l.to,
+								label: l.label,
+								onNavigate: () => setOpen(false)
+							}, l.to)),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "eyebrow mt-5 mb-1 px-3",
+								children: "Company"
+							}),
+							navLinks.slice(1).map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawerLink, {
+								to: l.to,
+								label: l.label,
+								onNavigate: () => setOpen(false)
+							}, l.to))
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "border-t border-sidebar-border p-4",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+							to: "/contact",
+							onClick: () => setOpen(false),
+							className: "flex items-center justify-center rounded-md bg-gradient-gold px-5 py-3 text-sm font-semibold text-ink shadow-gold",
+							children: "Contact Us"
+						})
+					})
+				]
 			})
-		})]
+		]
 	});
 }
 function HeaderLink({ to, label }) {
@@ -136,6 +202,16 @@ function HeaderLink({ to, label }) {
 		activeOptions: { exact: to === "/" },
 		activeProps: { className: "text-accent" },
 		className: "rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/80 transition-colors hover:text-accent",
+		children: label
+	});
+}
+function DrawerLink({ to, label, onNavigate }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+		to,
+		onClick: onNavigate,
+		activeOptions: { exact: to === "/" },
+		activeProps: { className: "bg-sidebar-accent text-accent" },
+		className: "block rounded-md px-3 py-3 text-base font-medium text-primary-foreground/85 transition-colors hover:bg-sidebar-accent hover:text-accent",
 		children: label
 	});
 }
@@ -499,7 +575,7 @@ function RootComponent() {
 		})]
 	});
 }
-var $$splitComponentImporter$11 = () => import("./routes-DK3Db4js.mjs");
+var $$splitComponentImporter$11 = () => import("./routes-uUPlU4k7.mjs");
 var Route$11 = createFileRoute("/")({
 	component: lazyRouteComponent($$splitComponentImporter$11, "component"),
 	head: () => ({

@@ -6,8 +6,9 @@ import { r as SectionHeading, t as CtaBand } from "./page-hero-B5i-ShLc.mjs";
 import { t as hero_security_default } from "./hero-security-I0lUDKTg.mjs";
 import { t as facility_services_default } from "./facility-services-xkLzxd2Q.mjs";
 import { t as security_services_default } from "./security-services-BneGgZJc.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-DK3Db4js.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-uUPlU4k7.js
 var import_jsx_runtime = require_jsx_runtime();
+var hero_security_mobile_default = "/assets/hero-security-mobile-QIt2eJjf.jpg";
 var clients = [
 	{
 		name: "Knight Frank (India) Pvt. Ltd.",
@@ -70,23 +71,29 @@ function Home() {
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 			className: "relative isolate overflow-hidden",
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("picture", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("source", {
+					media: "(max-width: 768px)",
+					srcSet: hero_security_mobile_default
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 					src: hero_security_default,
 					alt: "SP Securities guards on duty at a corporate tower in Pune",
 					width: 1920,
 					height: 1088,
-					className: "absolute inset-0 size-full object-cover"
-				}),
+					sizes: "100vw",
+					fetchPriority: "high",
+					decoding: "async",
+					className: "absolute inset-0 size-full object-cover object-center"
+				})] }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/80 to-ink/30" }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "relative mx-auto max-w-7xl px-4 py-24 md:py-36",
+					className: "relative mx-auto max-w-7xl px-4 py-20 md:py-36",
 					children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 							className: "text-xs font-bold tracking-[0.24em] text-accent uppercase",
 							children: "Security services across Pune & Mumbai"
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", {
-							className: "mt-5 max-w-3xl text-4xl leading-[1.08] font-semibold text-primary-foreground md:text-6xl",
+							className: "mt-4 max-w-3xl text-[2.5rem] leading-[1.06] font-semibold text-primary-foreground md:mt-5 md:text-6xl md:leading-[1.08]",
 							children: [
 								"Your Safety.",
 								" ",
@@ -97,23 +104,23 @@ function Home() {
 							]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "mt-6 max-w-xl text-lg text-primary-foreground/80",
+							className: "mt-5 max-w-xl text-base text-primary-foreground/80 md:mt-6 md:text-lg",
 							children: "Reliable, professional and responsible security solutions designed to protect people, properties, businesses and valuable assets."
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "mt-9 flex flex-wrap gap-3",
+							className: "mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-9",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
 								to: "/contact",
-								className: "inline-flex items-center gap-2 rounded-md bg-gradient-gold px-6 py-3 text-sm font-semibold text-ink shadow-gold transition-transform hover:-translate-y-0.5",
+								className: "inline-flex items-center justify-center gap-2 rounded-md bg-gradient-gold px-6 py-3 text-sm font-semibold text-ink shadow-gold transition-transform hover:-translate-y-0.5",
 								children: ["Contact Us ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "size-4" })]
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
 								to: "/services",
-								className: "inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:border-accent hover:text-accent",
+								className: "inline-flex items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:border-accent hover:text-accent",
 								children: "Explore Services"
 							})]
 						}),
 						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dl", {
-							className: "mt-14 grid max-w-3xl grid-cols-2 gap-6 md:grid-cols-4",
+							className: "mt-10 grid max-w-3xl grid-cols-2 gap-5 md:mt-14 md:grid-cols-4 md:gap-6",
 							children: stats.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								className: "border-l-2 border-accent/70 pl-4",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dt", {

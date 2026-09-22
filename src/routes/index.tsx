@@ -10,6 +10,7 @@ import {
   Headset,
 } from "lucide-react";
 import heroImage from "@/assets/hero-security.jpg";
+import heroImageMobile from "@/assets/hero-security-mobile.jpg";
 import securityImage from "@/assets/security-services.jpg";
 import facilityImage from "@/assets/facility-services.jpg";
 import { SectionHeading, CtaBand } from "@/components/page-hero";
@@ -89,42 +90,48 @@ function Home() {
   return (
     <>
       <section className="relative isolate overflow-hidden">
-        <img
-          src={heroImage}
-          alt="SP Securities guards on duty at a corporate tower in Pune"
-          width={1920}
-          height={1088}
-          className="absolute inset-0 size-full object-cover"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcSet={heroImageMobile} />
+          <img
+            src={heroImage}
+            alt="SP Securities guards on duty at a corporate tower in Pune"
+            width={1920}
+            height={1088}
+            sizes="100vw"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover object-center"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/80 to-ink/30" />
-        <div className="relative mx-auto max-w-7xl px-4 py-24 md:py-36">
+        <div className="relative mx-auto max-w-7xl px-4 py-20 md:py-36">
           <p className="text-xs font-bold tracking-[0.24em] text-accent uppercase">
             Security services across Pune &amp; Mumbai
           </p>
-          <h1 className="mt-5 max-w-3xl text-4xl leading-[1.08] font-semibold text-primary-foreground md:text-6xl">
+          <h1 className="mt-4 max-w-3xl text-[2.5rem] leading-[1.06] font-semibold text-primary-foreground md:mt-5 md:text-6xl md:leading-[1.08]">
             Your Safety.{" "}
             <span className="text-gradient-gold">Our Responsibility.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-primary-foreground/80">
+          <p className="mt-5 max-w-xl text-base text-primary-foreground/80 md:mt-6 md:text-lg">
             Reliable, professional and responsible security solutions designed
             to protect people, properties, businesses and valuable assets.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-9">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-gradient-gold px-6 py-3 text-sm font-semibold text-ink shadow-gold transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-gold px-6 py-3 text-sm font-semibold text-ink shadow-gold transition-transform hover:-translate-y-0.5"
             >
               Contact Us <ArrowRight className="size-4" />
             </Link>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:border-accent hover:text-accent"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-primary-foreground/30 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:border-accent hover:text-accent"
             >
               Explore Services
             </Link>
           </div>
 
-          <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-6 md:grid-cols-4">
+          <dl className="mt-10 grid max-w-3xl grid-cols-2 gap-5 md:mt-14 md:grid-cols-4 md:gap-6">
             {stats.map((s) => (
               <div key={s.label} className="border-l-2 border-accent/70 pl-4">
                 <dt className="font-display text-2xl font-semibold text-primary-foreground md:text-3xl">
