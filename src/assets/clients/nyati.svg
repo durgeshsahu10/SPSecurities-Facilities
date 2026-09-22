@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" role="img" aria-label="Nyati Group logo">
+  <circle cx="200" cy="42" r="26" fill="none" stroke="#C2410C" stroke-width="7"/>
+  <circle cx="200" cy="42" r="9" fill="#C2410C"/>
+  <text x="200" y="108" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="52" letter-spacing="4" fill="#9A3412">NYATI</text>
+  <text x="200" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="8" fill="#78716C">GROUP</text>
+</svg>

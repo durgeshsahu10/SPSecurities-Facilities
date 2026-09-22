@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build outputs (all generated — never commit)
+dist/
+.output/
+.firebase/
+.vinxi/
+build/
+.tanstack/
+.wrangler/
+
+# Env (keep .env.example tracked, never commit real keys)
+.env
+.env.local
+.env.*.local
+
+# Logs / OS / TS cache
+*.log
+npm-debug.log*
+*.tsbuildinfo
+.DS_Store
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
