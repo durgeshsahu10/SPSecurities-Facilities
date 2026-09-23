@@ -13,7 +13,8 @@ import {
 import { toast } from "sonner";
 import { PageHero, SectionHeading } from "@/components/page-hero";
 import teamImage from "@/assets/team-briefing.jpg";
-import { listJobs, submitDocument, type Job } from "@/lib/jobs";
+import { listJobs, submitDocument, uploadResume, type Job } from "@/lib/jobs";
+import { notifyAdminFn } from "@/lib/notify";
 
 export const Route = createFileRoute("/careers")({
   component: CareersPage,
@@ -50,6 +51,8 @@ function CareersPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<string>("");
+  const [roleText, setRoleText] = useState<string>("");
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [sending, setSending] = useState(false);
 
   useEffect(() => {
@@ -59,18 +62,66 @@ function CareersPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    setRoleText(selected);
+    setResumeFile(null);
+  }, [selected]);
+
+  const needsResume = jobs.some(
+    (j) =>
+      j.requireResume &&
+      j.title.trim().toLowerCase() === roleText.trim().toLowerCase(),
+  );
+
   async function apply(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+    if (needsResume && !resumeFile) {
+      toast.error("Please attach your resume (PDF or Word) for this role.");
+      return;
+    }
     setSending(true);
     try {
+      let resumeUrl: string | undefined;
+      let resumeName: string | undefined;
+      if (resumeFile) {
+        try {
+          const uploaded = await uploadResume(resumeFile);
+          if (uploaded) {
+            resumeUrl = uploaded.url;
+            resumeName = uploaded.name;
+          } else {
+            // Demo mode — no Storage; keep the file name for reference.
+            resumeName = resumeFile.name;
+          }
+        } catch (err) {
+          toast.error(
+            err instanceof Error ? err.message : "Could not upload resume.",
+          );
+          setSending(false);
+          return;
+        }
+      }
+      const fields: Record<string, string> = Object.fromEntries(
+        Object.entries(data).map(([k, v]) => [k, String(v ?? "")]),
+      );
+      fields["role"] = fields["role"] || selected;
+      if (resumeUrl) fields["resumeUrl"] = resumeUrl;
+      if (resumeName) fields["resumeName"] = resumeName;
       await submitDocument("applications", {
-        ...data,
-        role: data["role"] || selected,
+        ...fields,
+        role: fields["role"] || selected,
       });
+      // Best effort — a mail failure must never block the application.
+      try {
+        await notifyAdminFn({ data: { kind: "application", fields } });
+      } catch {
+        console.warn("[email] admin notification failed.");
+      }
       toast.success("Application received. Our HR team will call you shortly.");
       form.reset();
+      setResumeFile(null);
     } catch {
       toast.error("Could not submit your application. Please try again.");
     } finally {
@@ -168,6 +219,11 @@ function CareersPage() {
                         <IndianRupee className="size-3.5 text-gold-deep" />{" "}
                         {j.salary}
                       </span>
+                      {j.requireResume ? (
+                        <span className="rounded-full bg-sand px-3 py-1 font-semibold text-gold-deep">
+                          Resume required
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                   <a
@@ -204,8 +260,29 @@ function CareersPage() {
             required
             defaultValue={selected}
             key={selected}
+            onChange={setRoleText}
           />
           <Input label="Total experience" name="experience" />
+          {needsResume ? (
+            <div className="sm:col-span-2">
+              <label htmlFor="resume" className="text-sm font-medium text-ink">
+                Resume * (PDF or Word, max 5 MB)
+              </label>
+              <input
+                id="resume"
+                name="resume"
+                type="file"
+                accept=".pdf,.doc,.docx"
+                required
+                onChange={(e) => setResumeFile(e.target.files?.[0] ?? null)}
+                className="mt-2 w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none file:mr-4 file:rounded-md file:border-0 file:bg-sand file:px-4 file:py-2 file:text-sm file:font-semibold file:text-ink focus:border-gold focus:ring-2 focus:ring-ring/40"
+              />
+              <p className="mt-1.5 text-xs text-muted-foreground">
+                This role requires a resume — your application cannot be sent
+                without it.
+              </p>
+            </div>
+          ) : null}
           <div className="sm:col-span-2">
             <label htmlFor="about" className="text-sm font-medium text-ink">
               Brief about yourself
@@ -237,12 +314,14 @@ function Input({
   type = "text",
   required,
   defaultValue,
+  onChange,
 }: {
   label: string;
   name: string;
   type?: string;
   required?: boolean;
   defaultValue?: string;
+  onChange?: (value: string) => void;
 }) {
   return (
     <div>
@@ -255,6 +334,7 @@ function Input({
         type={type}
         required={required}
         defaultValue={defaultValue}
+        onChange={onChange ? (e) => onChange(e.target.value) : undefined}
         className="mt-2 w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-ring/40"
       />
     </div>

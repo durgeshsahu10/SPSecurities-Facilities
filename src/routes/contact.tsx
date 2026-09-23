@@ -6,6 +6,7 @@ import { PageHero, SectionHeading } from "@/components/page-hero";
 import heroImage from "@/assets/hero-security.jpg";
 import { company, serviceAreas } from "@/data/site";
 import { submitDocument } from "@/lib/jobs";
+import { notifyAdminFn } from "@/lib/notify";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
@@ -61,6 +62,15 @@ function ContactPage() {
     setLoading(true);
     try {
       await submitDocument("enquiries", data);
+      // Best effort — a mail failure must never block the enquiry.
+      try {
+        const fields: Record<string, string> = Object.fromEntries(
+          Object.entries(data).map(([k, v]) => [k, String(v ?? "")]),
+        );
+        await notifyAdminFn({ data: { kind: "enquiry", fields } });
+      } catch {
+        console.warn("[email] admin notification failed.");
+      }
       toast.success("Thank you — our team will contact you within 24 hours.");
       form.reset();
     } catch {

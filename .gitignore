@@ -4,6 +4,7 @@ node_modules/
 # Build outputs (all generated — never commit)
 dist/
 .output/
+.apphosting/
 .netlify/
 .firebase/
 .vinxi/
@@ -21,6 +22,10 @@ build/
 npm-debug.log*
 *.tsbuildinfo
 .DS_Store
+# Stray office files must never be committed (they bloat every clone/deploy)
+*.docx
+*.xlsx
+*.pptx
 
 # Editor
 .vscode/*
