@@ -373,8 +373,10 @@ are already committed — just confirm they exist:
 - `scripts/apphosting-bundle.mjs` + `"postbuild"` in `package.json` → every
   `npm run build` writes `.apphosting/bundle.yaml` (`runCommand: node
 .output/server/index.mjs`).
-- `apphosting.yaml` → backend env vars: `NITRO_PRESET=node-server`, the six
-  `VITE_*` keys, `ADMIN_EMAIL`/`SMTP_*` (password via Secret Manager, step 6.3).
+- `apphosting.yaml` → build behavior only (`NITRO_PRESET=node-server`).
+  ⚠️ Never put real keys in this file — GitHub's secret scanner flags
+  committed API keys. All real values live in the backend's **Settings →
+  Environment variables** instead (list below, step 6.3).
 - `.gitignore` ignores `.apphosting/`, `dist/`, `.output/` (all regenerated).
 
 Verify locally (proves the bundle works before involving Firebase):
@@ -412,7 +414,7 @@ firebase init apphosting
 ```
 
 - Use the existing project `spsecurities-2a6b0`.
-- Create a **new backend** → id `sp-website` → region closest to India.
+- Create a **new backend** → id `spsecurities-webapp` (already created via CLI) → region `asia-southeast1`.
 - When asked, **connect GitHub** → select
   `durgeshsahu10/SPSecurities-Facilities` → branch `main`. This link is what
   makes future pushes auto-deploy; the CLI deploy below does not need it, but
@@ -427,10 +429,29 @@ firebase apphosting:secrets:set SMTP_PASS
 # paste the 16-character app password when prompted
 ```
 
-`SMTP_USER` (your Gmail) goes in `apphosting.yaml` as a plain value when
-ready — it is not secret.
+`SMTP_USER` (your Gmail) is set alongside the others below — it is not secret.
 
-5. Push the latest code (backend builds whatever is on GitHub, so push first):
+5. Set the backend environment variables **in console** (never in git —
+   GitHub flags committed keys). Backend `spsecurities-webapp` → **Settings →
+   Environment variables** → add each with availability **Build and runtime**:
+
+```
+VITE_FIREBASE_API_KEY        (from your local .env)
+VITE_FIREBASE_AUTH_DOMAIN
+VITE_FIREBASE_PROJECT_ID
+VITE_FIREBASE_STORAGE_BUCKET
+VITE_FIREBASE_MESSAGING_SENDER_ID
+VITE_FIREBASE_APP_ID
+ADMIN_EMAIL=Monikak@spgroupcorps.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=<your Gmail, when ready>
+```
+
+(`SMTP_PASS` comes from the step-4 secret, not from this list. `VITE_*` must
+be present at **build** time — the cloud build bakes them into the site's JS.)
+
+6. Push the latest code (backend builds whatever is on GitHub, so push first):
 
 ```bash
 git add -A
@@ -438,22 +459,22 @@ git commit -m "Firebase hosting setup"
 git push origin main
 ```
 
-6. Deploy:
+7. Deploy:
 
 ```bash
 firebase deploy --only apphosting
 ```
 
 Watch the terminal: it uploads source → cloud build (`npm install`,
-`npm run build` + `postbuild`) → starts the server → prints your live
-`https://sp-website--<...>.web.app` URL. 7. Open the URL and click through: home, services, gallery, careers, contact,
+`npm run build` + `postbuild`) → starts the server → prints your
+live `https://spsecurities-webapp--<...>.web.app` URL. 8. Open the URL and click through: home, services, gallery, careers, contact,
 `/admin` login. If anything fails, the previous version (if any) keeps
 serving — check the backend's **build logs** in console → App Hosting.
 
 > Prefer clicks over CLI? Console alternative: **Build → App Hosting → Create
-> backend**, connect the same repo/branch, paste the same env vars from
-> `apphosting.yaml` with availability **Build and runtime** (SMTP_PASS as a
-> secret), deploy. Both paths produce the identical backend.
+> backend**, connect the same repo/branch, add the same env vars from step 5
+> above with availability **Build and runtime** (SMTP_PASS as a secret),
+> deploy. Both paths produce the identical backend.
 
 ### Step 6.4 — Verify auto CI/CD (push-to-live)
 
@@ -468,7 +489,7 @@ git commit -m "Test auto deploy"
 git push origin main
 ```
 
-3. Firebase console → **Build → App Hosting → `sp-website`** → watch a new
+3. Firebase console → **Build → App Hosting → `spsecurities-webapp`** → watch a new
    **Rollout** appear within a minute, go through _Building → Ready_.
 4. Open the live URL (hard-refresh / incognito to bypass cache) → your change
    is live. Typical build time: 3–8 minutes.
@@ -518,16 +539,17 @@ Day-to-day rules for this flow:
 
 ## 8. Troubleshooting
 
-| Symptom                                          | Cause → Fix                                                                                                                                  |
-| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Yellow "Demo mode" banner on `/admin`            | `.env` keys missing/wrong, or dev server not restarted after editing `.env` → recheck step 1.3–1.4.                                          |
-| `Missing or insufficient permissions` on submit  | Firestore rules not published, or published to the wrong project → step 2.2, press **Publish**.                                              |
-| `/admin` login says invalid credentials          | User doesn't exist or wrong project → step 3.2 (check you're in `sp-securities-facilities`).                                                 |
-| App Hosting build fails on `vite build`          | Backend missing the step-6.3 env vars, or wrong Node version → add all six `VITE_*` vars + `NITRO_PRESET=node-server`, rebuild.              |
-| Live site loads but buttons/forms do nothing     | Page served without the Node server (static-only deploy) → must deploy via **App Hosting** (step 6), not plain Firebase Hosting.             |
-| Resume/photo upload fails                        | Storage rules not published, file over 5 MB, or wrong type (resume must be PDF/Word, photos must be images) → step 4.2.                      |
-| No admin email arrives (but Firestore has entry) | SMTP vars missing/wrong → check `SMTP_HOST/USER/PASS` in `.env` (local) and backend env (hosting); server log shows `[email]` warnings.      |
-| Locked out of admin                              | Any remaining admin can reset via Authentication → Users → Reset password; keep two admin accounts so one lockout never blocks hiring posts. |
+| Symptom                                          | Cause → Fix                                                                                                                                                                  |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Yellow "Demo mode" banner on `/admin`            | `.env` keys missing/wrong, or dev server not restarted after editing `.env` → recheck step 1.3–1.4.                                                                          |
+| `Missing or insufficient permissions` on submit  | Firestore rules not published, or published to the wrong project → step 2.2, press **Publish**.                                                                              |
+| `/admin` login says invalid credentials          | User doesn't exist or wrong project → step 3.2 (check you're in `sp-securities-facilities`).                                                                                 |
+| App Hosting build fails on `vite build`          | Backend missing the step-6.3 env vars, or wrong Node version → add all six `VITE_*` vars + `NITRO_PRESET=node-server`, rebuild.                                              |
+| Live site loads but buttons/forms do nothing     | Page served without the Node server (static-only deploy) → must deploy via **App Hosting** (step 6), not plain Firebase Hosting.                                             |
+| Resume/photo upload fails                        | Storage rules not published, file over 5 MB, or wrong type (resume must be PDF/Word, photos must be images) → step 4.2.                                                      |
+| No admin email arrives (but Firestore has entry) | SMTP vars missing/wrong → check `SMTP_HOST/USER/PASS` in `.env` (local) and backend env (hosting); server log shows `[email]` warnings.                                      |
+| GitHub flags a committed API key                 | Never commit keys — keep values in backend Settings → Environment variables (step 6.3.5), restrict the key in Cloud Console (HTTP referrers + APIs), then resolve the alert. |
+| Locked out of admin                              | Any remaining admin can reset via Authentication → Users → Reset password; keep two admin accounts so one lockout never blocks hiring posts.                                 |
 
 ---
 
@@ -538,4 +560,4 @@ Day-to-day rules for this flow:
 - Storage folders: `resumes/` (private) · `gallery/` (public read)
 - Admin: Email/Password provider → user `admin@spgroupcorp.com` → sign in at `/admin` (4 tabs: jobs, applications, enquiries, gallery; CSV download on inbox tabs; auto sign-out after 120 min idle)
 - Notifications: Gmail App Password → `ADMIN_EMAIL`/`SMTP_*` env → mails to `Monikak@spgroupcorps.com` on every application + enquiry
-- Hosting: App Hosting backend `sp-website` → `NITRO_PRESET=node-server` → `node .output/server/index.mjs`
+- Hosting: App Hosting backend `spsecurities-webapp` (`asia-southeast1`, Node 24) → `NITRO_PRESET=node-server` → `node .output/server/index.mjs`
